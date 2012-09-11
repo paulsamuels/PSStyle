@@ -7,15 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA80612915FFB1C2003DBBDF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA80612815FFB1C2003DBBDF /* SenTestingKit.framework */; };
+		DA80612A15FFB1C2003DBBDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55715FFA60B00403AC0 /* UIKit.framework */; };
+		DA80612B15FFB1C2003DBBDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55915FFA60B00403AC0 /* Foundation.framework */; };
+		DA80613115FFB1C2003DBBDF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA80612F15FFB1C2003DBBDF /* InfoPlist.strings */; };
+		DA80613415FFB1C2003DBBDF /* PSStyleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80613315FFB1C2003DBBDF /* PSStyleTests.m */; };
+		DA80614015FFB5F8003DBBDF /* style.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACAA57615FFA76A00403AC0 /* style.plist */; };
+		DA80614215FFBAF9003DBBDF /* customStyle.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA80614115FFBAF9003DBBDF /* customStyle.plist */; };
+		DA80614315FFE560003DBBDF /* MyAppStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA57415FFA6D600403AC0 /* MyAppStyle.m */; };
+		DA80614D15FFE64A003DBBDF /* PSStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80614C15FFE64A003DBBDF /* PSStyle.m */; };
+		DA80614E15FFE64A003DBBDF /* PSStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80614C15FFE64A003DBBDF /* PSStyle.m */; };
 		DACAA55815FFA60B00403AC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55715FFA60B00403AC0 /* UIKit.framework */; };
 		DACAA55A15FFA60B00403AC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55915FFA60B00403AC0 /* Foundation.framework */; };
 		DACAA55C15FFA60B00403AC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55B15FFA60B00403AC0 /* CoreGraphics.framework */; };
 		DACAA56215FFA60B00403AC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DACAA56015FFA60B00403AC0 /* InfoPlist.strings */; };
 		DACAA56415FFA60B00403AC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA56315FFA60B00403AC0 /* main.m */; };
 		DACAA56815FFA60B00403AC0 /* PSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA56715FFA60B00403AC0 /* PSAppDelegate.m */; };
+		DACAA57515FFA6D600403AC0 /* MyAppStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA57415FFA6D600403AC0 /* MyAppStyle.m */; };
+		DACAA57715FFA76A00403AC0 /* style.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACAA57615FFA76A00403AC0 /* style.plist */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DA80613A15FFB1FD003DBBDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DACAA54A15FFA60B00403AC0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DACAA55215FFA60B00403AC0;
+			remoteInfo = PSStyle;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		DA80612715FFB1C2003DBBDF /* PSStyleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PSStyleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA80612815FFB1C2003DBBDF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		DA80612E15FFB1C2003DBBDF /* PSStyleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PSStyleTests-Info.plist"; sourceTree = "<group>"; };
+		DA80613015FFB1C2003DBBDF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DA80613315FFB1C2003DBBDF /* PSStyleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSStyleTests.m; sourceTree = "<group>"; };
+		DA80613515FFB1C2003DBBDF /* PSStyleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSStyleTests-Prefix.pch"; sourceTree = "<group>"; };
+		DA80614115FFBAF9003DBBDF /* customStyle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = customStyle.plist; sourceTree = "<group>"; };
+		DA80614B15FFE64A003DBBDF /* PSStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyle.h; sourceTree = "<group>"; };
+		DA80614C15FFE64A003DBBDF /* PSStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyle.m; sourceTree = "<group>"; };
 		DACAA55315FFA60B00403AC0 /* PSStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACAA55715FFA60B00403AC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DACAA55915FFA60B00403AC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -26,9 +57,22 @@
 		DACAA56515FFA60B00403AC0 /* PSStyle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSStyle-Prefix.pch"; sourceTree = "<group>"; };
 		DACAA56615FFA60B00403AC0 /* PSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAppDelegate.h; sourceTree = "<group>"; };
 		DACAA56715FFA60B00403AC0 /* PSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppDelegate.m; sourceTree = "<group>"; };
+		DACAA57315FFA6D600403AC0 /* MyAppStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAppStyle.h; sourceTree = "<group>"; };
+		DACAA57415FFA6D600403AC0 /* MyAppStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAppStyle.m; sourceTree = "<group>"; };
+		DACAA57615FFA76A00403AC0 /* style.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = style.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DA80612315FFB1C2003DBBDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA80612915FFB1C2003DBBDF /* SenTestingKit.framework in Frameworks */,
+				DA80612A15FFB1C2003DBBDF /* UIKit.framework in Frameworks */,
+				DA80612B15FFB1C2003DBBDF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DACAA55015FFA60B00403AC0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,10 +86,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA80612C15FFB1C2003DBBDF /* PSStyleTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA80613315FFB1C2003DBBDF /* PSStyleTests.m */,
+				DA80614115FFBAF9003DBBDF /* customStyle.plist */,
+				DA80612D15FFB1C2003DBBDF /* Supporting Files */,
+			);
+			path = PSStyleTests;
+			sourceTree = "<group>";
+		};
+		DA80612D15FFB1C2003DBBDF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA80612E15FFB1C2003DBBDF /* PSStyleTests-Info.plist */,
+				DA80612F15FFB1C2003DBBDF /* InfoPlist.strings */,
+				DA80613515FFB1C2003DBBDF /* PSStyleTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		DACAA54815FFA60B00403AC0 = {
 			isa = PBXGroup;
 			children = (
 				DACAA55D15FFA60B00403AC0 /* PSStyle */,
+				DA80612C15FFB1C2003DBBDF /* PSStyleTests */,
 				DACAA55615FFA60B00403AC0 /* Frameworks */,
 				DACAA55415FFA60B00403AC0 /* Products */,
 			);
@@ -55,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				DACAA55315FFA60B00403AC0 /* PSStyle.app */,
+				DA80612715FFB1C2003DBBDF /* PSStyleTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +131,7 @@
 				DACAA55715FFA60B00403AC0 /* UIKit.framework */,
 				DACAA55915FFA60B00403AC0 /* Foundation.framework */,
 				DACAA55B15FFA60B00403AC0 /* CoreGraphics.framework */,
+				DA80612815FFB1C2003DBBDF /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -74,7 +141,12 @@
 			children = (
 				DACAA56615FFA60B00403AC0 /* PSAppDelegate.h */,
 				DACAA56715FFA60B00403AC0 /* PSAppDelegate.m */,
+				DA80614B15FFE64A003DBBDF /* PSStyle.h */,
+				DA80614C15FFE64A003DBBDF /* PSStyle.m */,
 				DACAA55E15FFA60B00403AC0 /* Supporting Files */,
+				DACAA57315FFA6D600403AC0 /* MyAppStyle.h */,
+				DACAA57415FFA6D600403AC0 /* MyAppStyle.m */,
+				DACAA57615FFA76A00403AC0 /* style.plist */,
 			);
 			path = PSStyle;
 			sourceTree = "<group>";
@@ -93,6 +165,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DA80612615FFB1C2003DBBDF /* PSStyleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA80613815FFB1C2003DBBDF /* Build configuration list for PBXNativeTarget "PSStyleTests" */;
+			buildPhases = (
+				DA80612215FFB1C2003DBBDF /* Sources */,
+				DA80612315FFB1C2003DBBDF /* Frameworks */,
+				DA80612415FFB1C2003DBBDF /* Resources */,
+				DA80612515FFB1C2003DBBDF /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA80613B15FFB1FD003DBBDF /* PBXTargetDependency */,
+			);
+			name = PSStyleTests;
+			productName = PSStyleTests;
+			productReference = DA80612715FFB1C2003DBBDF /* PSStyleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		DACAA55215FFA60B00403AC0 /* PSStyle */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DACAA56B15FFA60B00403AC0 /* Build configuration list for PBXNativeTarget "PSStyle" */;
@@ -133,34 +224,90 @@
 			projectRoot = "";
 			targets = (
 				DACAA55215FFA60B00403AC0 /* PSStyle */,
+				DA80612615FFB1C2003DBBDF /* PSStyleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DA80612415FFB1C2003DBBDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA80613115FFB1C2003DBBDF /* InfoPlist.strings in Resources */,
+				DA80614015FFB5F8003DBBDF /* style.plist in Resources */,
+				DA80614215FFBAF9003DBBDF /* customStyle.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DACAA55115FFA60B00403AC0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DACAA56215FFA60B00403AC0 /* InfoPlist.strings in Resources */,
+				DACAA57715FFA76A00403AC0 /* style.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DA80612515FFB1C2003DBBDF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		DA80612215FFB1C2003DBBDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA80613415FFB1C2003DBBDF /* PSStyleTests.m in Sources */,
+				DA80614315FFE560003DBBDF /* MyAppStyle.m in Sources */,
+				DA80614E15FFE64A003DBBDF /* PSStyle.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DACAA54F15FFA60B00403AC0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DACAA56415FFA60B00403AC0 /* main.m in Sources */,
 				DACAA56815FFA60B00403AC0 /* PSAppDelegate.m in Sources */,
+				DACAA57515FFA6D600403AC0 /* MyAppStyle.m in Sources */,
+				DA80614D15FFE64A003DBBDF /* PSStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DA80613B15FFB1FD003DBBDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DACAA55215FFA60B00403AC0 /* PSStyle */;
+			targetProxy = DA80613A15FFB1FD003DBBDF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		DA80612F15FFB1C2003DBBDF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA80613015FFB1C2003DBBDF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DACAA56015FFA60B00403AC0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -172,6 +319,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DA80613615FFB1C2003DBBDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PSStyleTests/PSStyleTests-Prefix.pch";
+				INFOPLIST_FILE = "PSStyleTests/PSStyleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		DA80613715FFB1C2003DBBDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PSStyleTests/PSStyleTests-Prefix.pch";
+				INFOPLIST_FILE = "PSStyleTests/PSStyleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		DACAA56915FFA60B00403AC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -246,6 +423,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DA80613815FFB1C2003DBBDF /* Build configuration list for PBXNativeTarget "PSStyleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA80613615FFB1C2003DBBDF /* Debug */,
+				DA80613715FFB1C2003DBBDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		DACAA54D15FFA60B00403AC0 /* Build configuration list for PBXProject "PSStyle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -262,6 +447,7 @@
 				DACAA56D15FFA60B00403AC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
