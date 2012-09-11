@@ -1,0 +1,269 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DACAA55815FFA60B00403AC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55715FFA60B00403AC0 /* UIKit.framework */; };
+		DACAA55A15FFA60B00403AC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55915FFA60B00403AC0 /* Foundation.framework */; };
+		DACAA55C15FFA60B00403AC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55B15FFA60B00403AC0 /* CoreGraphics.framework */; };
+		DACAA56215FFA60B00403AC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DACAA56015FFA60B00403AC0 /* InfoPlist.strings */; };
+		DACAA56415FFA60B00403AC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA56315FFA60B00403AC0 /* main.m */; };
+		DACAA56815FFA60B00403AC0 /* PSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA56715FFA60B00403AC0 /* PSAppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DACAA55315FFA60B00403AC0 /* PSStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DACAA55715FFA60B00403AC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DACAA55915FFA60B00403AC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DACAA55B15FFA60B00403AC0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DACAA55F15FFA60B00403AC0 /* PSStyle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PSStyle-Info.plist"; sourceTree = "<group>"; };
+		DACAA56115FFA60B00403AC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DACAA56315FFA60B00403AC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DACAA56515FFA60B00403AC0 /* PSStyle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSStyle-Prefix.pch"; sourceTree = "<group>"; };
+		DACAA56615FFA60B00403AC0 /* PSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAppDelegate.h; sourceTree = "<group>"; };
+		DACAA56715FFA60B00403AC0 /* PSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DACAA55015FFA60B00403AC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DACAA55815FFA60B00403AC0 /* UIKit.framework in Frameworks */,
+				DACAA55A15FFA60B00403AC0 /* Foundation.framework in Frameworks */,
+				DACAA55C15FFA60B00403AC0 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DACAA54815FFA60B00403AC0 = {
+			isa = PBXGroup;
+			children = (
+				DACAA55D15FFA60B00403AC0 /* PSStyle */,
+				DACAA55615FFA60B00403AC0 /* Frameworks */,
+				DACAA55415FFA60B00403AC0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DACAA55415FFA60B00403AC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DACAA55315FFA60B00403AC0 /* PSStyle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DACAA55615FFA60B00403AC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DACAA55715FFA60B00403AC0 /* UIKit.framework */,
+				DACAA55915FFA60B00403AC0 /* Foundation.framework */,
+				DACAA55B15FFA60B00403AC0 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DACAA55D15FFA60B00403AC0 /* PSStyle */ = {
+			isa = PBXGroup;
+			children = (
+				DACAA56615FFA60B00403AC0 /* PSAppDelegate.h */,
+				DACAA56715FFA60B00403AC0 /* PSAppDelegate.m */,
+				DACAA55E15FFA60B00403AC0 /* Supporting Files */,
+			);
+			path = PSStyle;
+			sourceTree = "<group>";
+		};
+		DACAA55E15FFA60B00403AC0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DACAA55F15FFA60B00403AC0 /* PSStyle-Info.plist */,
+				DACAA56015FFA60B00403AC0 /* InfoPlist.strings */,
+				DACAA56315FFA60B00403AC0 /* main.m */,
+				DACAA56515FFA60B00403AC0 /* PSStyle-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DACAA55215FFA60B00403AC0 /* PSStyle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DACAA56B15FFA60B00403AC0 /* Build configuration list for PBXNativeTarget "PSStyle" */;
+			buildPhases = (
+				DACAA54F15FFA60B00403AC0 /* Sources */,
+				DACAA55015FFA60B00403AC0 /* Frameworks */,
+				DACAA55115FFA60B00403AC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PSStyle;
+			productName = PSStyle;
+			productReference = DACAA55315FFA60B00403AC0 /* PSStyle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DACAA54A15FFA60B00403AC0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PS;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Paul Samuels";
+			};
+			buildConfigurationList = DACAA54D15FFA60B00403AC0 /* Build configuration list for PBXProject "PSStyle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DACAA54815FFA60B00403AC0;
+			productRefGroup = DACAA55415FFA60B00403AC0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DACAA55215FFA60B00403AC0 /* PSStyle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DACAA55115FFA60B00403AC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DACAA56215FFA60B00403AC0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DACAA54F15FFA60B00403AC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DACAA56415FFA60B00403AC0 /* main.m in Sources */,
+				DACAA56815FFA60B00403AC0 /* PSAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DACAA56015FFA60B00403AC0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DACAA56115FFA60B00403AC0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DACAA56915FFA60B00403AC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DACAA56A15FFA60B00403AC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DACAA56C15FFA60B00403AC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PSStyle/PSStyle-Prefix.pch";
+				INFOPLIST_FILE = "PSStyle/PSStyle-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DACAA56D15FFA60B00403AC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PSStyle/PSStyle-Prefix.pch";
+				INFOPLIST_FILE = "PSStyle/PSStyle-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DACAA54D15FFA60B00403AC0 /* Build configuration list for PBXProject "PSStyle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DACAA56915FFA60B00403AC0 /* Debug */,
+				DACAA56A15FFA60B00403AC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DACAA56B15FFA60B00403AC0 /* Build configuration list for PBXNativeTarget "PSStyle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DACAA56C15FFA60B00403AC0 /* Debug */,
+				DACAA56D15FFA60B00403AC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DACAA54A15FFA60B00403AC0 /* Project object */;
+}
