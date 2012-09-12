@@ -8,6 +8,9 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "MyAppStyle.h"
+#import "PSFakeNotificationCenter.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
 
 @interface PSStyle (Testing)
 
@@ -78,5 +81,21 @@
 {
   STAssertThrows((void)self.style.undefinedRoundedImage, @"");
 }
+
+- (void)testItRegistersToReceiveLowMemoryNotifications;
+{
+  PSFakeNotificationCenter *notificationCenter = [[PSFakeNotificationCenter alloc] init];
+  
+  self.style.notificationCenter = (id)notificationCenter;
+  (void)[self.style init];
+  
+  STAssertTrue(notificationCenter.didRegister, @"");
+}
+
+//- (void)testItPurgesDataInLowMemoryConditions;
+//{
+//  id object = nil;
+//  object_getInstanceVariable(self.style, "as", &object);
+//}
 
 @end

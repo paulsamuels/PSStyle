@@ -35,13 +35,27 @@ static UIImage *RoundedImageDispatcher(PSStyle *self, SEL _cmd);
   return instance;
 }
 
+- (void)dealloc;
+{
+  [self.notificationCenter removeObserver:self];
+}
+
 - (id)init;
 {
   self = [super init];
   if (self) {
-    [self loadStyleComponents];
+    [self createDirectoryStructure];
+    [self.notificationCenter addObserver:self
+                                selector:@selector(didReceiveMemoryWarning)
+                                    name:UIApplicationDidReceiveMemoryWarningNotification
+                                  object:nil];
   }
   return self;
+}
+
+- (void)didReceiveMemoryWarning;
+{
+  [[self class] reset];
 }
 
 + (void)reset;
@@ -51,30 +65,22 @@ static UIImage *RoundedImageDispatcher(PSStyle *self, SEL _cmd);
 //  [[NSFileManager defaultManager] removeItemAtPath:[instance generatedImagesDirectory] error:nil];
   instance->_plistPath     = nil;
   instance->_styleMappings = nil;
-  [instance loadStyleComponents];
+  instance->_colors        = nil;
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)sel;
 {
   NSString *key = NSStringFromSelector(sel);
   
+  BOOL didAdd = NO;
+  
   if ([key hasSuffix:@"RoundedImage"]) {
-    class_addMethod([self class], sel, (IMP)RoundedImageDispatcher, "@@:");
-    return YES;
+    didAdd = class_addMethod([self class], sel, (IMP)RoundedImageDispatcher, "@@:");
   } else if ([key hasSuffix:@"Color"]) {
-    class_addMethod([self class], sel, (IMP)ColorDispatcher, "@@:");
-    return YES;
+    didAdd = class_addMethod([self class], sel, (IMP)ColorDispatcher, "@@:");
   }
   
-  return [super resolveInstanceMethod:sel];
-}
-
-- (void)loadStyleComponents;
-{
-  [[NSFileManager defaultManager] createDirectoryAtPath:[self generatedImagesDirectory]
-                            withIntermediateDirectories:YES
-                                             attributes:nil
-                                                  error:nil];
+  return didAdd || [super resolveInstanceMethod:sel];
 }
 
 - (UIColor *)colorWithRGBA:(NSArray *)RGBA;
@@ -89,6 +95,14 @@ static UIImage *RoundedImageDispatcher(PSStyle *self, SEL _cmd);
   CGFloat alpha = [[RGBA objectAtIndex:3] floatValue] / 255.f;
   
   return [[UIColor alloc] initWithRed:red green:green blue:blue alpha:alpha];
+}
+
+- (void)createDirectoryStructure;
+{
+  [[NSFileManager defaultManager] createDirectoryAtPath:[self generatedImagesDirectory]
+                            withIntermediateDirectories:YES
+                                             attributes:nil
+                                                  error:nil];
 }
 
 #pragma mark - Properties
@@ -108,7 +122,7 @@ static UIImage *RoundedImageDispatcher(PSStyle *self, SEL _cmd);
     _plistPath     = plistPath;
     _styleMappings = nil;
     _colors        = nil;
-    [self loadStyleComponents];
+    [self createDirectoryStructure];
   }
 }
 
@@ -125,6 +139,11 @@ static UIImage *RoundedImageDispatcher(PSStyle *self, SEL _cmd);
 - (NSMutableDictionary *)colors;
 {
   return _colors = _colors ?: [[NSMutableDictionary alloc] init];
+}
+
+- (NSNotificationCenter *)notificationCenter;
+{
+  return _notificationCenter = _notificationCenter ?: [NSNotificationCenter defaultCenter];
 }
 
 @end

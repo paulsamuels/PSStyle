@@ -10,7 +10,8 @@
 
 @interface PSStyle : NSObject
 
-@property (nonatomic, strong) NSString *plistPath;
+@property (nonatomic, strong) NSString             *plistPath;
+@property (nonatomic, strong) NSNotificationCenter *notificationCenter;
 
 + (id)sharedInstance;
 
