@@ -75,17 +75,14 @@ static UIImage *RoundedImageDispatcher(PSStyle *self, SEL _cmd);
                             withIntermediateDirectories:YES
                                              attributes:nil
                                                   error:nil];
-    
-  [self.styleMappings enumerateKeysAndObjectsUsingBlock:^(id key, NSArray *components, BOOL *stop) {
-    if ([key hasSuffix:@"Color"]) {
-      UIColor *color = [self colorWithRGBA:components];
-      [self.colors setObject:color forKey:key];
-    }
-  }];
 }
 
 - (UIColor *)colorWithRGBA:(NSArray *)RGBA;
 {
+  if (RGBA.count < 4) {
+    return nil;
+  }
+  
   CGFloat red   = [[RGBA objectAtIndex:0] floatValue] / 255.f;
   CGFloat green = [[RGBA objectAtIndex:1] floatValue] / 255.f;
   CGFloat blue  = [[RGBA objectAtIndex:2] floatValue] / 255.f;
@@ -110,6 +107,7 @@ static UIImage *RoundedImageDispatcher(PSStyle *self, SEL _cmd);
   if (_plistPath != plistPath) {
     _plistPath     = plistPath;
     _styleMappings = nil;
+    _colors        = nil;
     [self loadStyleComponents];
   }
 }
@@ -135,6 +133,11 @@ static UIColor *ColorDispatcher(PSStyle *self, SEL _cmd)
 {
   NSString *key = NSStringFromSelector(_cmd);
   UIColor *color = [self.colors objectForKey:key];
+  
+  if (!color) {
+    color = [self colorWithRGBA:[self.styleMappings objectForKey:key]];
+    [self.colors setValue:color forKey:key];
+  }
   
   if (!color) {
     [NSException raise:NSInternalInconsistencyException format:@"No color found for %@", key];
