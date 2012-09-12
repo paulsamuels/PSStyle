@@ -324,6 +324,7 @@
 		DA80613615FFB1C2003DBBDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PSStyle.app/PSStyle";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -332,6 +333,7 @@
 				GCC_PREFIX_HEADER = "PSStyleTests/PSStyleTests-Prefix.pch";
 				INFOPLIST_FILE = "PSStyleTests/PSStyleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -339,6 +341,7 @@
 		DA80613715FFB1C2003DBBDF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PSStyle.app/PSStyle";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -347,6 +350,7 @@
 				GCC_PREFIX_HEADER = "PSStyleTests/PSStyleTests-Prefix.pch";
 				INFOPLIST_FILE = "PSStyleTests/PSStyleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

@@ -14,5 +14,6 @@
 @dynamic redColor;
 @dynamic blueColor;
 @dynamic darkRoundedImage;
+@dynamic undefinedRoundedImage;
 
 @end

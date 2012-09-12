@@ -10,12 +10,11 @@
 #import <objc/runtime.h>
 
 static UIColor *ColorDispatcher(id self, SEL _cmd);
-static id BlockDispatcher(id self, SEL _cmd);
+static UIImage *RoundedImageDispatcher(PSStyle *self, SEL _cmd);
 
 @interface PSStyle ()
 
 @property (nonatomic, strong) NSDictionary        *styleMappings;
-@property (nonatomic, strong) NSMutableDictionary *blocks;
 @property (nonatomic, strong) NSMutableDictionary *colors;
 
 @end
@@ -49,6 +48,7 @@ static id BlockDispatcher(id self, SEL _cmd);
 {
   PSStyle *instance = [self sharedInstance];
   
+//  [[NSFileManager defaultManager] removeItemAtPath:[instance generatedImagesDirectory] error:nil];
   instance->_plistPath     = nil;
   instance->_styleMappings = nil;
   [instance loadStyleComponents];
@@ -59,7 +59,7 @@ static id BlockDispatcher(id self, SEL _cmd);
   NSString *key = NSStringFromSelector(sel);
   
   if ([key hasSuffix:@"RoundedImage"]) {
-    class_addMethod([self class], sel, (IMP)BlockDispatcher, "@@:");
+    class_addMethod([self class], sel, (IMP)RoundedImageDispatcher, "@@:");
     return YES;
   } else if ([key hasSuffix:@"Color"]) {
     class_addMethod([self class], sel, (IMP)ColorDispatcher, "@@:");
@@ -75,76 +75,13 @@ static id BlockDispatcher(id self, SEL _cmd);
                             withIntermediateDirectories:YES
                                              attributes:nil
                                                   error:nil];
-  
-  NSMutableArray *colorKeys        = [[NSMutableArray alloc] init];
-  NSMutableArray *roundedImageKeys = [[NSMutableArray alloc] init];
-  
-  for (NSString *key in self.styleMappings.allKeys) {
+    
+  [self.styleMappings enumerateKeysAndObjectsUsingBlock:^(id key, NSArray *components, BOOL *stop) {
     if ([key hasSuffix:@"Color"]) {
-      [colorKeys addObject:key];
-    } else if ([key hasSuffix:@"RoundedImage"]) {
-      [roundedImageKeys addObject:key];
+      UIColor *color = [self colorWithRGBA:components];
+      [self.colors setObject:color forKey:key];
     }
-  }
-  
-  for (NSString *key in colorKeys) {
-    UIColor *color = [self colorWithRGBA:[self.styleMappings objectForKey:key]];
-    [self.colors setObject:color forKey:key];
-  }
-  
-  for (NSString *key in roundedImageKeys) {
-    NSDictionary *options = [self.styleMappings objectForKey:key];
-    
-    id        colorName  = [options objectForKey:@"color"];
-    CGFloat   radius     = [[options objectForKey:@"radius"] floatValue];
-    
-    UIColor *color = nil;
-    
-    if ([colorName respondsToSelector:@selector(count)]) {
-      color = [self colorWithRGBA:colorName];
-    } else {
-      color = [self.colors objectForKey:colorName];
-      if (!color) {
-        color = [UIColor performSelector:NSSelectorFromString(colorName)];
-      }
-    }
-    
-    CGFloat scale = [UIScreen mainScreen].scale;
-    NSString *imagePath = [[self generatedImagesDirectory] stringByAppendingFormat:@"/%@%@.png", key, 2 == scale ? @"@2x" : @""];
-    
-    [self.blocks setObject:^{
-      UIImage *image = [UIImage imageNamed:key];
-      
-      if (!image) {
-        image = [[UIImage alloc] initWithContentsOfFile:imagePath];
-      }
-      
-      if (!image) {
-        CGFloat width = (radius * 2) + 1;
-        CGSize  size  = CGSizeMake(width, width);
-        CGRect  rect  = (CGRect){ CGPointZero, size };
-        
-        UIGraphicsBeginImageContextWithOptions(size, NO, scale);
-        
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextClearRect(context, rect);
-        
-        [color setFill];
-        UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:radius];
-        [roundedRect fill];
-        
-        image = UIGraphicsGetImageFromCurrentImageContext();
-        
-        NSData *imageData = UIImagePNGRepresentation(image);
-        [imageData writeToFile:imagePath atomically:YES];
-        
-        UIGraphicsEndImageContext();
-      }
-      
-      return [image resizableImageWithCapInsets:UIEdgeInsetsMake(radius, radius, radius, radius)];
-      
-    } forKey:key];
-  }
+  }];
 }
 
 - (UIColor *)colorWithRGBA:(NSArray *)RGBA;
@@ -187,11 +124,6 @@ static id BlockDispatcher(id self, SEL _cmd);
   return _styleMappings = _styleMappings ?: [[NSDictionary alloc] initWithContentsOfFile:self.plistPath];
 }
 
-- (NSMutableDictionary *)blocks;
-{
-  return _blocks = _blocks ?: [[NSMutableDictionary alloc] init];
-}
-
 - (NSMutableDictionary *)colors;
 {
   return _colors = _colors ?: [[NSMutableDictionary alloc] init];
@@ -211,14 +143,55 @@ static UIColor *ColorDispatcher(PSStyle *self, SEL _cmd)
   return color;
 }
 
-static id BlockDispatcher(id self, SEL _cmd)
+static UIImage *RoundedImageDispatcher(PSStyle *self, SEL _cmd)
 {
-  NSString *key = NSStringFromSelector(_cmd);
-  UIColor * (^block)(void) = [[self blocks] objectForKey:key];
+  NSString     *key     = NSStringFromSelector(_cmd);
+  NSDictionary *options = [self.styleMappings objectForKey:key];
   
-  if (!block) {
-    [NSException raise:NSInternalInconsistencyException format:@"No block found for %@", key];
+  id        colorComponentsOrName  = [options objectForKey:@"color"];
+  CGFloat   radius                 = [[options objectForKey:@"radius"] floatValue];
+  
+  UIColor *color = nil;
+  
+  if ([colorComponentsOrName respondsToSelector:@selector(count)]) {
+    color = [self colorWithRGBA:colorComponentsOrName];
+  } else {
+    color = [self.colors objectForKey:colorComponentsOrName];
+    if (!color) {
+      color = [UIColor performSelector:NSSelectorFromString(colorComponentsOrName)];
+    }
   }
   
-  return block();
+  CGFloat   scale     = [UIScreen mainScreen].scale;
+  NSString *imagePath = [[self generatedImagesDirectory] stringByAppendingFormat:@"/%@%@.png", key, 2 == scale ? @"@2x" : @""];
+  
+  UIImage *image = [UIImage imageNamed:key];
+  
+  if (!image) {
+    image = [[UIImage alloc] initWithContentsOfFile:imagePath];
+  }
+  
+  if (!image) {
+    CGFloat width = (radius * 2) + 1;
+    CGSize  size  = CGSizeMake(width, width);
+    CGRect  rect  = (CGRect){ CGPointZero, size };
+    
+    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextClearRect(context, rect);
+    
+    [color setFill];
+    UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:radius];
+    [roundedRect fill];
+    
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [imageData writeToFile:imagePath atomically:YES];
+    
+    UIGraphicsEndImageContext();
+  }
+  
+  return [image resizableImageWithCapInsets:UIEdgeInsetsMake(radius, radius, radius, radius)];
 }

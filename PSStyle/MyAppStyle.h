@@ -14,5 +14,6 @@
 @property (nonatomic, strong, readonly) UIColor *redColor;
 @property (nonatomic, strong, readonly) UIColor *blueColor;
 @property (nonatomic, strong, readonly) UIImage *darkRoundedImage;
+@property (nonatomic, strong, readonly) UIImage *undefinedRoundedImage;
 
 @end

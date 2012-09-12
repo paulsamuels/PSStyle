@@ -43,14 +43,14 @@
 
 - (void)testItScreamsIfColorIsNotInTheStyleSheet;
 {
-  STAssertThrows([self.style undefinedColor], @"");
+  STAssertThrows((void)self.style.undefinedColor, @"");
 }
 
 - (void)testItGetsColorsInTheStyleSheet;
 {
   UIColor *expected = [UIColor colorWithRed:255.f/255.f green:0.f/155.f blue:0.f/255.f alpha:255.f/255.f];
 
-  STAssertEqualObjects([self.style redColor], expected, @"");
+  STAssertEqualObjects(self.style.redColor, expected, @"");
 }
 
 - (void)testItCanDealWithChaningThePlist;
@@ -66,7 +66,17 @@
   
   UIColor *expected = [UIColor colorWithRed:0.f/255.f green:255.f/155.f blue:0.f/255.f alpha:255.f/255.f];
   
-  STAssertEqualObjects([self.style redColor], expected, @"");
+  STAssertEqualObjects(self.style.redColor, expected, @"");
+}
+
+- (void)testItGetsRoundedImagesInTheStyleSheet;
+{
+  STAssertNotNil(self.style.darkRoundedImage, @"");
+}
+
+- (void)testItScreamsIfRoundedImageIsNotInTheStyleSheet;
+{
+  STAssertThrows((void)self.style.undefinedRoundedImage, @"");
 }
 
 @end
