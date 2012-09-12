@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA6F907C160099D8007A0AE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55B15FFA60B00403AC0 /* CoreGraphics.framework */; };
 		DA80612915FFB1C2003DBBDF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA80612815FFB1C2003DBBDF /* SenTestingKit.framework */; };
 		DA80612A15FFB1C2003DBBDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55715FFA60B00403AC0 /* UIKit.framework */; };
 		DA80612B15FFB1C2003DBBDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55915FFA60B00403AC0 /* Foundation.framework */; };
@@ -67,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA6F907C160099D8007A0AE5 /* CoreGraphics.framework in Frameworks */,
 				DA80612915FFB1C2003DBBDF /* SenTestingKit.framework in Frameworks */,
 				DA80612A15FFB1C2003DBBDF /* UIKit.framework in Frameworks */,
 				DA80612B15FFB1C2003DBBDF /* Foundation.framework in Frameworks */,
@@ -430,6 +432,7 @@
 				DA80613715FFB1C2003DBBDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DACAA54D15FFA60B00403AC0 /* Build configuration list for PBXProject "PSStyle" */ = {
 			isa = XCConfigurationList;

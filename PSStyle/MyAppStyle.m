@@ -12,5 +12,7 @@
 
 @dynamic undefinedColor;
 @dynamic redColor;
+@dynamic blueColor;
+@dynamic darkRoundedImage;
 
 @end

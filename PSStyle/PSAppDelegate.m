@@ -16,7 +16,15 @@
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   
   self.window.backgroundColor = [[MyAppStyle sharedInstance] redColor];
+//    self.window.backgroundColor = [[MyAppStyle sharedInstance] blueColor];
   [self.window makeKeyAndVisible];
+  
+  UIImage *image = [[MyAppStyle sharedInstance] darkRoundedImage];
+  UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+  imageView.frame = CGRectMake(100, 100, 100, 100);
+  [self.window addSubview:imageView];
+  
+  NSLog(@"%@", [[MyAppStyle sharedInstance] darkRoundedImage]);
   
   return YES;
 }
