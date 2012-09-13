@@ -13,5 +13,6 @@
 @property (nonatomic, assign) BOOL didRegister;
 
 - (void)addObserver:(id)observer selector:(SEL)aSelector name:(NSString *)aName object:(id)anObject;
+- (void)removeObserver:(id)notificationObserver;
 
 @end

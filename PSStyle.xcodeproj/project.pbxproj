@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA20617C16015188007A7959 /* PSFakeNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA20617B16015188007A7959 /* PSFakeNotificationCenter.m */; };
+		DA6BE805160240C900B58067 /* PSStyleColorDispatcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BE804160240C900B58067 /* PSStyleColorDispatcherTests.m */; };
 		DA6F907C160099D8007A0AE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55B15FFA60B00403AC0 /* CoreGraphics.framework */; };
 		DA80612915FFB1C2003DBBDF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA80612815FFB1C2003DBBDF /* SenTestingKit.framework */; };
 		DA80612A15FFB1C2003DBBDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55715FFA60B00403AC0 /* UIKit.framework */; };
@@ -16,16 +17,18 @@
 		DA80613415FFB1C2003DBBDF /* PSStyleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80613315FFB1C2003DBBDF /* PSStyleTests.m */; };
 		DA80614015FFB5F8003DBBDF /* style.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACAA57615FFA76A00403AC0 /* style.plist */; };
 		DA80614215FFBAF9003DBBDF /* customStyle.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA80614115FFBAF9003DBBDF /* customStyle.plist */; };
-		DA80614315FFE560003DBBDF /* MyAppStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA57415FFA6D600403AC0 /* MyAppStyle.m */; };
-		DA80614D15FFE64A003DBBDF /* PSStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80614C15FFE64A003DBBDF /* PSStyle.m */; };
-		DA80614E15FFE64A003DBBDF /* PSStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80614C15FFE64A003DBBDF /* PSStyle.m */; };
+		DA80614315FFE560003DBBDF /* ExampleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA57415FFA6D600403AC0 /* ExampleStyle.m */; };
+		DA80E73216027A0200F0DC17 /* PSStyleDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80E72F16027A0200F0DC17 /* PSStyleDispatcher.m */; };
+		DA80E73316027A0200F0DC17 /* PSStyleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80E73116027A0200F0DC17 /* PSStyleManager.m */; };
+		DA80E73916027A0E00F0DC17 /* PSStyleColorDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80E73616027A0E00F0DC17 /* PSStyleColorDispatcher.m */; };
+		DA80E73A16027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80E73816027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.m */; };
 		DACAA55815FFA60B00403AC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55715FFA60B00403AC0 /* UIKit.framework */; };
 		DACAA55A15FFA60B00403AC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55915FFA60B00403AC0 /* Foundation.framework */; };
 		DACAA55C15FFA60B00403AC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55B15FFA60B00403AC0 /* CoreGraphics.framework */; };
 		DACAA56215FFA60B00403AC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DACAA56015FFA60B00403AC0 /* InfoPlist.strings */; };
 		DACAA56415FFA60B00403AC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA56315FFA60B00403AC0 /* main.m */; };
 		DACAA56815FFA60B00403AC0 /* PSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA56715FFA60B00403AC0 /* PSAppDelegate.m */; };
-		DACAA57515FFA6D600403AC0 /* MyAppStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA57415FFA6D600403AC0 /* MyAppStyle.m */; };
+		DACAA57515FFA6D600403AC0 /* ExampleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA57415FFA6D600403AC0 /* ExampleStyle.m */; };
 		DACAA57715FFA76A00403AC0 /* style.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACAA57615FFA76A00403AC0 /* style.plist */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,7 @@
 /* Begin PBXFileReference section */
 		DA20617A16015188007A7959 /* PSFakeNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFakeNotificationCenter.h; sourceTree = "<group>"; };
 		DA20617B16015188007A7959 /* PSFakeNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFakeNotificationCenter.m; sourceTree = "<group>"; };
+		DA6BE804160240C900B58067 /* PSStyleColorDispatcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleColorDispatcherTests.m; sourceTree = "<group>"; };
 		DA80612715FFB1C2003DBBDF /* PSStyleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PSStyleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA80612815FFB1C2003DBBDF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DA80612E15FFB1C2003DBBDF /* PSStyleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PSStyleTests-Info.plist"; sourceTree = "<group>"; };
@@ -49,8 +53,14 @@
 		DA80613315FFB1C2003DBBDF /* PSStyleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSStyleTests.m; sourceTree = "<group>"; };
 		DA80613515FFB1C2003DBBDF /* PSStyleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSStyleTests-Prefix.pch"; sourceTree = "<group>"; };
 		DA80614115FFBAF9003DBBDF /* customStyle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = customStyle.plist; sourceTree = "<group>"; };
-		DA80614B15FFE64A003DBBDF /* PSStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyle.h; sourceTree = "<group>"; };
-		DA80614C15FFE64A003DBBDF /* PSStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyle.m; sourceTree = "<group>"; };
+		DA80E72E16027A0200F0DC17 /* PSStyleDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleDispatcher.h; sourceTree = "<group>"; };
+		DA80E72F16027A0200F0DC17 /* PSStyleDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleDispatcher.m; sourceTree = "<group>"; };
+		DA80E73016027A0200F0DC17 /* PSStyleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleManager.h; sourceTree = "<group>"; };
+		DA80E73116027A0200F0DC17 /* PSStyleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleManager.m; sourceTree = "<group>"; };
+		DA80E73516027A0E00F0DC17 /* PSStyleColorDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleColorDispatcher.h; sourceTree = "<group>"; };
+		DA80E73616027A0E00F0DC17 /* PSStyleColorDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleColorDispatcher.m; sourceTree = "<group>"; };
+		DA80E73716027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleRoundedImageDispatcher.h; sourceTree = "<group>"; };
+		DA80E73816027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleRoundedImageDispatcher.m; sourceTree = "<group>"; };
 		DACAA55315FFA60B00403AC0 /* PSStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACAA55715FFA60B00403AC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DACAA55915FFA60B00403AC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,8 +71,8 @@
 		DACAA56515FFA60B00403AC0 /* PSStyle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSStyle-Prefix.pch"; sourceTree = "<group>"; };
 		DACAA56615FFA60B00403AC0 /* PSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAppDelegate.h; sourceTree = "<group>"; };
 		DACAA56715FFA60B00403AC0 /* PSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppDelegate.m; sourceTree = "<group>"; };
-		DACAA57315FFA6D600403AC0 /* MyAppStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAppStyle.h; sourceTree = "<group>"; };
-		DACAA57415FFA6D600403AC0 /* MyAppStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAppStyle.m; sourceTree = "<group>"; };
+		DACAA57315FFA6D600403AC0 /* ExampleStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleStyle.h; sourceTree = "<group>"; };
+		DACAA57415FFA6D600403AC0 /* ExampleStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleStyle.m; sourceTree = "<group>"; };
 		DACAA57615FFA76A00403AC0 /* style.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = style.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +109,7 @@
 				DA80612D15FFB1C2003DBBDF /* Supporting Files */,
 				DA20617A16015188007A7959 /* PSFakeNotificationCenter.h */,
 				DA20617B16015188007A7959 /* PSFakeNotificationCenter.m */,
+				DA6BE804160240C900B58067 /* PSStyleColorDispatcherTests.m */,
 			);
 			path = PSStyleTests;
 			sourceTree = "<group>";
@@ -111,6 +122,28 @@
 				DA80613515FFB1C2003DBBDF /* PSStyleTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA80E72D16027A0200F0DC17 /* PSStyleManager */ = {
+			isa = PBXGroup;
+			children = (
+				DA80E72E16027A0200F0DC17 /* PSStyleDispatcher.h */,
+				DA80E72F16027A0200F0DC17 /* PSStyleDispatcher.m */,
+				DA80E73016027A0200F0DC17 /* PSStyleManager.h */,
+				DA80E73116027A0200F0DC17 /* PSStyleManager.m */,
+			);
+			path = PSStyleManager;
+			sourceTree = "<group>";
+		};
+		DA80E73416027A0E00F0DC17 /* Dispatchers */ = {
+			isa = PBXGroup;
+			children = (
+				DA80E73516027A0E00F0DC17 /* PSStyleColorDispatcher.h */,
+				DA80E73616027A0E00F0DC17 /* PSStyleColorDispatcher.m */,
+				DA80E73716027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.h */,
+				DA80E73816027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.m */,
+			);
+			path = Dispatchers;
 			sourceTree = "<group>";
 		};
 		DACAA54815FFA60B00403AC0 = {
@@ -146,13 +179,13 @@
 		DACAA55D15FFA60B00403AC0 /* PSStyle */ = {
 			isa = PBXGroup;
 			children = (
+				DA80E72D16027A0200F0DC17 /* PSStyleManager */,
+				DA80E73416027A0E00F0DC17 /* Dispatchers */,
 				DACAA56615FFA60B00403AC0 /* PSAppDelegate.h */,
 				DACAA56715FFA60B00403AC0 /* PSAppDelegate.m */,
-				DA80614B15FFE64A003DBBDF /* PSStyle.h */,
-				DA80614C15FFE64A003DBBDF /* PSStyle.m */,
 				DACAA55E15FFA60B00403AC0 /* Supporting Files */,
-				DACAA57315FFA6D600403AC0 /* MyAppStyle.h */,
-				DACAA57415FFA6D600403AC0 /* MyAppStyle.m */,
+				DACAA57315FFA6D600403AC0 /* ExampleStyle.h */,
+				DACAA57415FFA6D600403AC0 /* ExampleStyle.m */,
 				DACAA57615FFA76A00403AC0 /* style.plist */,
 			);
 			path = PSStyle;
@@ -280,9 +313,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA80613415FFB1C2003DBBDF /* PSStyleTests.m in Sources */,
-				DA80614315FFE560003DBBDF /* MyAppStyle.m in Sources */,
-				DA80614E15FFE64A003DBBDF /* PSStyle.m in Sources */,
+				DA80614315FFE560003DBBDF /* ExampleStyle.m in Sources */,
 				DA20617C16015188007A7959 /* PSFakeNotificationCenter.m in Sources */,
+				DA6BE805160240C900B58067 /* PSStyleColorDispatcherTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,8 +325,11 @@
 			files = (
 				DACAA56415FFA60B00403AC0 /* main.m in Sources */,
 				DACAA56815FFA60B00403AC0 /* PSAppDelegate.m in Sources */,
-				DACAA57515FFA6D600403AC0 /* MyAppStyle.m in Sources */,
-				DA80614D15FFE64A003DBBDF /* PSStyle.m in Sources */,
+				DACAA57515FFA6D600403AC0 /* ExampleStyle.m in Sources */,
+				DA80E73216027A0200F0DC17 /* PSStyleDispatcher.m in Sources */,
+				DA80E73316027A0200F0DC17 /* PSStyleManager.m in Sources */,
+				DA80E73916027A0E00F0DC17 /* PSStyleColorDispatcher.m in Sources */,
+				DA80E73A16027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

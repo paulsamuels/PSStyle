@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Paul Samuels. All rights reserved.
 //
 
-#import "PSStyle.h"
+#import "PSStyleManager.h"
 
-@interface MyAppStyle : PSStyle
+@interface ExampleStyle : PSStyleManager
 
 @property (nonatomic, strong, readonly) UIColor *undefinedColor;
 @property (nonatomic, strong, readonly) UIColor *redColor;

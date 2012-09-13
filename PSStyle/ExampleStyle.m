@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Paul Samuels. All rights reserved.
 //
 
-#import "MyAppStyle.h"
+#import "ExampleStyle.h"
 
-@implementation MyAppStyle
+@implementation ExampleStyle
 
 @dynamic undefinedColor;
 @dynamic redColor;

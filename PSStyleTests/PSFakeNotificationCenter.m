@@ -15,4 +15,8 @@
   self.didRegister = YES;
 }
 
+- (void)removeObserver:(id)notificationObserver;
+{
+}
+
 @end

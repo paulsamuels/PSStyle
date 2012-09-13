@@ -7,7 +7,9 @@
 //
 
 #import "PSAppDelegate.h"
-#import "MyAppStyle.h"
+#import "ExampleStyle.h"
+#import "PSStyleColorDispatcher.h"
+#import "PSStyleRoundedImageDispatcher.h"
 
 @implementation PSAppDelegate
 
@@ -15,16 +17,19 @@
 {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   
-  self.window.backgroundColor = [[MyAppStyle sharedInstance] redColor];
-//    self.window.backgroundColor = [[MyAppStyle sharedInstance] blueColor];
-  [self.window makeKeyAndVisible];
+  ExampleStyle *style = [[ExampleStyle alloc] init];
+  [style registerStyleDispatcherClass:[PSStyleColorDispatcher class]];
+  [style registerStyleDispatcherClass:[PSStyleRoundedImageDispatcher class]];
   
-  UIImage *image = [[MyAppStyle sharedInstance] darkRoundedImage];
+  UIImage *image = style.darkRoundedImage;
   UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
   imageView.frame = CGRectMake(100, 100, 100, 100);
   [self.window addSubview:imageView];
+
+  style.plistPath = [[NSBundle mainBundle] pathForResource:@"customStyle" ofType:@"plist"];
   
-  NSLog(@"%@", [[MyAppStyle sharedInstance] darkRoundedImage]);
+  self.window.backgroundColor = style.redColor;
+  [self.window makeKeyAndVisible];
   
   return YES;
 }

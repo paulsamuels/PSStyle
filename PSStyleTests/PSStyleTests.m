@@ -7,12 +7,15 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "MyAppStyle.h"
+#import "ExampleStyle.h"
 #import "PSFakeNotificationCenter.h"
+#import "PSStyleColorDispatcher.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 
-@interface PSStyle (Testing)
+@interface PSStyleManager (Testing)
+
+@property (nonatomic, strong) NSArray *dispatchers;
 
 + (void)reset;
 
@@ -20,7 +23,7 @@
 
 @interface PSStyleTests : SenTestCase
 
-@property (nonatomic, strong) MyAppStyle *style;
+@property (nonatomic, strong) ExampleStyle *style;
 
 @end
 
@@ -30,56 +33,19 @@
 {
   [super setUp];
   
-  _style = [MyAppStyle sharedInstance];
+  _style = [[ExampleStyle alloc] init];
 }
 
 - (void)tearDown
 {
-  [[_style class] reset];
+  _style = nil;
   [super tearDown];
 }
 
-- (void)testItProvidesNastySingletonAccess;
-{
-  STAssertEqualObjects([MyAppStyle sharedInstance], [MyAppStyle sharedInstance], @"");
-}
-
-- (void)testItScreamsIfColorIsNotInTheStyleSheet;
-{
-  STAssertThrows((void)self.style.undefinedColor, @"");
-}
-
-- (void)testItGetsColorsInTheStyleSheet;
-{
-  UIColor *expected = [UIColor colorWithRed:255.f/255.f green:0.f/155.f blue:0.f/255.f alpha:255.f/255.f];
-
-  STAssertEqualObjects(self.style.redColor, expected, @"");
-}
-
-- (void)testItCanDealWithChaningThePlist;
+- (void)testItCanDealWithChangingThePlist;
 {
   NSString *customPlist = [[NSBundle bundleForClass:[self class]] pathForResource:@"customStyle" ofType:@"plist"];
   STAssertNoThrow(self.style.plistPath = customPlist, @"");
-}
-
-- (void)testItGetsNewColorsIfPlistChanges;
-{
-  NSString *customPlist = [[NSBundle bundleForClass:[self class]] pathForResource:@"customStyle" ofType:@"plist"];
-  self.style.plistPath = customPlist;
-  
-  UIColor *expected = [UIColor colorWithRed:0.f/255.f green:255.f/155.f blue:0.f/255.f alpha:255.f/255.f];
-  
-  STAssertEqualObjects(self.style.redColor, expected, @"");
-}
-
-- (void)testItGetsRoundedImagesInTheStyleSheet;
-{
-  STAssertNotNil(self.style.darkRoundedImage, @"");
-}
-
-- (void)testItScreamsIfRoundedImageIsNotInTheStyleSheet;
-{
-  STAssertThrows((void)self.style.undefinedRoundedImage, @"");
 }
 
 - (void)testItRegistersToReceiveLowMemoryNotifications;
@@ -92,10 +58,19 @@
   STAssertTrue(notificationCenter.didRegister, @"");
 }
 
-//- (void)testItPurgesDataInLowMemoryConditions;
-//{
-//  id object = nil;
-//  object_getInstanceVariable(self.style, "as", &object);
-//}
+- (void)testItReturnsNOIfAddingInvalidDispatcher;
+{
+  STAssertFalse([self.style registerStyleDispatcherClass:[NSObject class]], @"");
+}
+
+- (void)testItCanAddDispatchers;
+{
+  STAssertTrue([self.style registerStyleDispatcherClass:[PSStyleColorDispatcher class]], @"");
+}
+
+- (void)testItCanRemoveDispatchers;
+{
+  STAssertNoThrow([self.style unregisterStyleDispatcherClass:[PSStyleColorDispatcher class]], @"");
+}
 
 @end
