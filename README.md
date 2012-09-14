@@ -2,10 +2,10 @@ The basic idea for this project is that you choose some structure for laying out
 
 ##Installation and Use
 
-Just include `PSStyleManager.*` and `PSStyleDispatcher.*`. Then implement your logic in subclasses of these two.
+Just include `PSStyleManager.*` and `PSStyleResolver.*`. Then implement your logic in subclasses of these two.
 
 - A subclass of `PSStyleManager` - is where you declare the domain specific names of the assets you want to provide.
-- Multiple subclasses of `PSStyleDispatcher` - is where you define the logic to provide assets when asked, you can provide your own basic caching behaviour and will be told when to purge your cache.
+- Multiple subclasses of `PSStyleResolver` - is where you define the logic to provide assets when asked, you can provide your own basic caching behaviour and will be told when to purge your cache.
 
 ##Example application
 
@@ -36,7 +36,7 @@ In the implementation this would look like:
 `MyStyle.m`
 
     #import "MyStyle.h"
-    #import "MyColorDispatcher.h"
+    #import "MyColorResolver.h"
     
     @implementation MyStyle
     
@@ -58,7 +58,7 @@ In the implementation this would look like:
     {
       self = [super init];
       if (self) {
-        [self registerStyleClass:[MyColorDispatcher class]];
+        [self registerStyleResolverClass:[MyColorResolver class]];
       }
       return self;
     }
@@ -80,21 +80,21 @@ To keep things simple in this example we are just going to store the selector na
       </dict>
     </plist>
     
-###3. Implement the dispatcher that can handle the meta data
+###3. Implement the resolver that can handle the meta data
 
-As this example is deliberately simple, just using convenience methods on `UIColor`, the implementation for the dispatcher can also be pretty trivial. The dispatcher is the class that was registered in `PSStyleManager`'s init method
+As this example is deliberately simple, just using convenience methods on `UIColor`, the implementation for the resolver can also be pretty trivial. The resolver is the class that was registered in `PSStyleManager`'s init method
 
-In `MyColorDispatcher.h`
+In `MyColorResolver.h`
 
-    #import "PSStyleDispatcher.h"
+    #import "PSStyleResolver.h"
 
-    @interface MyColorDispatcher : PSStyleDispatcher
+    @interface MyColorResolver : PSStyleResolver
 
     @end
     
-Then in `MyColorDispatcher.m`
+Then in `MyColorResolver.m`
 
-    @implementation PSStyleColorDispatcher
+    @implementation PSStyleColorResolver
 
     + (BOOL)canHandleStyleSelector:(SEL)sel;
     {
@@ -116,8 +116,8 @@ Then in `MyColorDispatcher.m`
     
     @end
     
-In `+[MyColorDispatcher canHandleStyleSelector:]` we declare that this dispatcher will claim to handle any selector with the suffix `Color`. The `@dynamic` property we declared was `backgroundColor` so this dispatcher should be called.
+In `+[MyColorResolver canHandleStyleSelector:]` we declare that this resolver will claim to handle any selector with the suffix `Color`. The `@dynamic` property we declared was `backgroundColor` so this resolver should be called.
     
 In `styleAssetWithKey:metaData:` we are handed the metadata. In the case of calling `-[MyStyle backgroundColor]` we would receive the string `redColor` as defined in our plist. We then call this method on `UIColor` and return the result.
 
-This is the simplest use case and provides the flexibility to externally configure an apps colours, albeit the nasty convenience method colours. Check the dispatchers in the example project for more complex things involving caching, image lookup and image generation.
+This is the simplest use case and provides the flexibility to externally configure an apps colours, albeit the nasty convenience method colours. Check the resolvers in the example project for more complex things involving caching, image lookup and image generation.
