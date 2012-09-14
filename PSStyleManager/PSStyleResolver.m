@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Paul Samuels. All rights reserved.
 //
 
-#import "PSStyleDispatcher.h"
+#import "PSStyleResolver.h"
 
-@implementation PSStyleDispatcher
+@implementation PSStyleResolver
 
 - (id)initWithStyleManager:(PSStyleManager *)styleManager;
 {

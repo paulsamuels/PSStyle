@@ -7,9 +7,9 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "PSStyleColorDispatcher.h"
+#import "PSStyleColorResolver.h"
 
-@interface PSStyleColorDispatcher (Testing)
+@interface PSStyleColorResolver (Testing)
 
 @property (nonatomic, strong) NSMutableDictionary *cache;
 
@@ -17,7 +17,7 @@
 
 @interface PSStyleColorDispatcherTests : SenTestCase
 
-@property (nonatomic, strong) PSStyleColorDispatcher *colorDispatcher;
+@property (nonatomic, strong) PSStyleColorResolver *colorDispatcher;
 
 @end
 
@@ -26,7 +26,7 @@
 - (void)setUp;
 {
   [super setUp];
-  self.colorDispatcher = [[PSStyleColorDispatcher alloc] init];
+  self.colorDispatcher = [[PSStyleColorResolver alloc] init];
 }
 
 - (void)tearDown;

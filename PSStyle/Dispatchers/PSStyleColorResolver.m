@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 Paul Samuels. All rights reserved.
 //
 
-#import "PSStyleColorDispatcher.h"
+#import "PSStyleColorResolver.h"
 
-@interface PSStyleColorDispatcher ()
+@interface PSStyleColorResolver ()
 
 @property (nonatomic, strong) NSMutableDictionary *cache;
 
 @end
 
-@implementation PSStyleColorDispatcher
+@implementation PSStyleColorResolver
 
 + (BOOL)canHandleStyleSelector:(SEL)sel;
 {

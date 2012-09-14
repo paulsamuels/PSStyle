@@ -8,8 +8,10 @@
 
 #import "PSAppDelegate.h"
 #import "ExampleStyle.h"
-#import "PSStyleColorDispatcher.h"
-#import "PSStyleRoundedImageDispatcher.h"
+#import "PSStyleColorResolver.h"
+#import "PSStyleRoundedImageResolver.h"
+
+#import "PSStyleMeViewController.h"
 
 @implementation PSAppDelegate
 
@@ -18,17 +20,14 @@
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   
   ExampleStyle *style = [[ExampleStyle alloc] init];
-  [style registerStyleDispatcherClass:[PSStyleColorDispatcher class]];
-  [style registerStyleDispatcherClass:[PSStyleRoundedImageDispatcher class]];
+  [style registerStyleResolverClass:[PSStyleColorResolver class]];
+  [style registerStyleResolverClass:[PSStyleRoundedImageResolver class]];
   
-  UIImage *image = style.darkRoundedImage;
-  UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-  imageView.frame = CGRectMake(100, 100, 100, 100);
-  [self.window addSubview:imageView];
+  PSStyleMeViewController *viewController = [[PSStyleMeViewController alloc] init];
+  viewController.style = style;
+  
+  self.window.rootViewController = viewController;
 
-  style.plistPath = [[NSBundle mainBundle] pathForResource:@"customStyle" ofType:@"plist"];
-  
-  self.window.backgroundColor = style.redColor;
   [self.window makeKeyAndVisible];
   
   return YES;

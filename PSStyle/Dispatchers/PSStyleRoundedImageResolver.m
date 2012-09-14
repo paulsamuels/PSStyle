@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Paul Samuels. All rights reserved.
 //
 
-#import "PSStyleRoundedImageDispatcher.h"
+#import "PSStyleRoundedImageResolver.h"
 
-@implementation PSStyleRoundedImageDispatcher
+@implementation PSStyleRoundedImageResolver
 
 + (BOOL)canHandleStyleSelector:(SEL)sel;
 {
@@ -56,8 +56,8 @@
 
     image = UIGraphicsGetImageFromCurrentImageContext();
 
-    NSData *imageData = UIImagePNGRepresentation(image);
-    [imageData writeToFile:imagePath atomically:YES];
+//    NSData *imageData = UIImagePNGRepresentation(image);
+//    [imageData writeToFile:imagePath atomically:YES]; // commented for exmaple project
 
     UIGraphicsEndImageContext();
   }

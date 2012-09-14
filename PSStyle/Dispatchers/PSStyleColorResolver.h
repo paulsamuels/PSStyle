@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PSStyleDispatcher.h"
+#import "PSStyleResolver.h"
 
-@interface PSStyleColorDispatcher : PSStyleDispatcher
+@interface PSStyleColorResolver : PSStyleResolver
 
 @end

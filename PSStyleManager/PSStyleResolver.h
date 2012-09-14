@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PSStyleManager.h"
 
-@interface PSStyleDispatcher : NSObject <PSStyleDispatcher>
+@interface PSStyleResolver : NSObject <PSStyleResolver>
 
 @property (nonatomic, weak) PSStyleManager *styleManager;
 

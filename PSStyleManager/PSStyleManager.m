@@ -7,16 +7,18 @@
 //
 
 #import "PSStyleManager.h"
-#import "PSStyleDispatcher.h"
+#import "PSStyleResolver.h"
 #import <objc/runtime.h>
+
+static NSMutableSet *ResolverClasses;
 
 static id StyleDispatch(PSStyleManager *self, SEL _cmd);
 
 @interface PSStyleManager ()
 
 @property (nonatomic, strong) NSDictionary        *styleMappings;
-@property (nonatomic, strong) NSMutableArray      *styleClasses;
-@property (nonatomic, strong) NSMutableDictionary *dispatchers;
+@property (nonatomic, strong) NSMutableArray      *styleResolverClasses;
+@property (nonatomic, strong) NSMutableDictionary *resolvers;
 
 @end
 
@@ -33,6 +35,7 @@ static id StyleDispatch(PSStyleManager *self, SEL _cmd);
 {
   self = [super init];
   if (self) {
+    [self createDirectoryStructure];
     [self.notificationCenter addObserver:self
                                 selector:@selector(didReceiveMemoryWarning)
                                     name:UIApplicationDidReceiveMemoryWarningNotification
@@ -41,23 +44,34 @@ static id StyleDispatch(PSStyleManager *self, SEL _cmd);
   return self;
 }
 
-- (BOOL)registerStyleClass:(Class)styleClass;
++ (void)initialize;
 {
-  if ([styleClass conformsToProtocol:@protocol(PSStyleDispatcher)]) {
-    NSString *className = NSStringFromClass(styleClass);
+  if (self == [PSStyleManager class]) {
+    ResolverClasses = [[NSMutableSet alloc] init];
+  }
+}
+
+- (BOOL)registerStyleResolverClass:(Class)styleResolverClass;
+{
+  if ([styleResolverClass conformsToProtocol:@protocol(PSStyleResolver)]) {
+    NSString *className = NSStringFromClass(styleResolverClass);
     
-    [self.styleClasses removeObject:className];
-    [self.styleClasses insertObject:className atIndex:0];
+    [self.styleResolverClasses removeObject:className];
+    [self.styleResolverClasses insertObject:className atIndex:0];
+    
+    [ResolverClasses addObject:className];
     
     return YES;
   }
   return NO;
 }
 
-- (void)unregisterStyleClass:(Class)styleClass;
+- (void)unregisterStyleResolverClass:(Class)styleResolverClass;
 {
-  NSString *className = NSStringFromClass(styleClass);
-  [self.styleClasses removeObject:className];
+  NSString *className = NSStringFromClass(styleResolverClass);
+  [self.styleResolverClasses removeObject:className];
+  
+  [ResolverClasses removeObject:className];
 }
 
 - (void)didReceiveMemoryWarning;
@@ -67,30 +81,63 @@ static id StyleDispatch(PSStyleManager *self, SEL _cmd);
 
 - (void)purgeAll;
 {
-  [self.dispatchers.allValues makeObjectsPerformSelector:@selector(purgeCaches)];
+  for (id resolver in self.resolvers.allValues) {
+    if ([resolver respondsToSelector:@selector(purgeCaches)]) {
+      [resolver purgeCaches];
+    }
+  }
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)sel;
-{    
-  BOOL methodAdded = class_addMethod([self class], sel, (IMP)StyleDispatch, "@@:");;
+{
+  BOOL methodAdded = NO;
+  
+  for (NSString *className in ResolverClasses) {
+    Class resolverClass = NSClassFromString(className);
+    
+    if (resolverClass && [resolverClass canHandleStyleSelector:sel] && ![className hasPrefix:@"_"]) {
+      methodAdded = class_addMethod([self class], sel, (IMP)StyleDispatch, "@@:");
+    }
+  }
+  
   return methodAdded || [super resolveInstanceMethod:sel];
 }
 
-- (id<PSStyleDispatcher>)dispatcherForClass:(Class)dispatcherClass;
+- (id<PSStyleResolver>)resolverForClass:(Class)resolverClass;
 {
-  NSString *className = NSStringFromClass(dispatcherClass);
+  NSString *className = NSStringFromClass(resolverClass);
   
-  id<PSStyleDispatcher> dispatcher = [self.dispatchers objectForKey:className];
+  id<PSStyleResolver> resolver = [self.resolvers objectForKey:className];
   
-  if (!dispatcher) {
-    dispatcher = [[dispatcherClass alloc] initWithStyleManager:self];
-    [self.dispatchers setValue:dispatcher forKey:className];
+  if (!resolver) {
+    resolver = [[resolverClass alloc] initWithStyleManager:self];
+    [self.resolvers setValue:resolver forKey:className];
   }
   
-  return dispatcher;
+  return resolver;
 }
 
 #pragma mark - Properties
+
+- (void)createDirectoryStructure;
+{
+  [[NSFileManager defaultManager] createDirectoryAtPath:self.assetDirectory
+                            withIntermediateDirectories:YES
+                                             attributes:nil
+                                                  error:nil];
+}
+
+#pragma mark - Properties
+
+
+- (NSString *)assetDirectory;
+{
+  NSString *cachesDirectory = [[[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject] path];
+  
+  NSString *directory = [[self.plistPath stringByDeletingPathExtension] lastPathComponent];
+  
+  return [cachesDirectory stringByAppendingPathComponent:directory];
+}
 
 - (void)setPlistPath:(NSString *)plistPath;
 {
@@ -98,6 +145,7 @@ static id StyleDispatch(PSStyleManager *self, SEL _cmd);
     _plistPath     = plistPath;
     _styleMappings = nil;
     [self purgeAll];
+    [self createDirectoryStructure];
   }
 }
 
@@ -111,9 +159,9 @@ static id StyleDispatch(PSStyleManager *self, SEL _cmd);
   return _styleMappings = _styleMappings ?: [[NSDictionary alloc] initWithContentsOfFile:self.plistPath];
 }
 
-- (NSMutableArray *)styleClasses;
+- (NSMutableArray *)styleResolverClasses;
 {
-  return _styleClasses = _styleClasses ?: [[NSMutableArray alloc] init];
+  return _styleResolverClasses = _styleResolverClasses ?: [[NSMutableArray alloc] init];
 }
 
 - (NSNotificationCenter *)notificationCenter;
@@ -121,9 +169,9 @@ static id StyleDispatch(PSStyleManager *self, SEL _cmd);
   return _notificationCenter = _notificationCenter ?: [NSNotificationCenter defaultCenter];
 }
 
-- (NSMutableDictionary *)dispatchers;
+- (NSMutableDictionary *)resolvers;
 {
-  return _dispatchers = _dispatchers ?: [[NSMutableDictionary alloc] init];
+  return _resolvers = _resolvers ?: [[NSMutableDictionary alloc] init];
 }
 
 @end
@@ -132,21 +180,26 @@ static id StyleDispatch(PSStyleManager *self, SEL _cmd)
 {
   NSString *className  = nil;
   id        styleAsset = nil;
+  NSString *key        = NSStringFromSelector(_cmd);
   
-  NSEnumerator *enumerator = [self.styleClasses reverseObjectEnumerator];
+  NSEnumerator *enumerator = [self.styleResolverClasses reverseObjectEnumerator];
   
-  while (!styleAsset && (className = [enumerator nextObject])) {
+  while ((className = [enumerator nextObject])) {
     
     Class styleClass = NSClassFromString(className);
     if (styleClass && [styleClass canHandleStyleSelector:_cmd]) {
       
-      id<PSStyleDispatcher> dispatcher = [self dispatcherForClass:styleClass];
-      NSDictionary *metaData = [self.styleMappings objectForKey:NSStringFromSelector(_cmd)];
-      styleAsset = [dispatcher styleAssetWithKey:NSStringFromSelector(_cmd) metaData:metaData];
+      id<PSStyleResolver> resolver = [self resolverForClass:styleClass];
+      NSDictionary *metaData = [self.styleMappings objectForKey:key];
+      styleAsset = [resolver styleAssetWithKey:key metaData:metaData];
       
       break;
     }
     
+  }
+  
+  if (!styleAsset) {
+    [NSException raise:NSInternalInconsistencyException format:@"No style asset found for %@", key];
   }
   
   return styleAsset;

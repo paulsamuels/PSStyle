@@ -16,4 +16,8 @@
 @dynamic darkRoundedImage;
 @dynamic undefinedRoundedImage;
 
+@dynamic backgroundColor;
+@dynamic buttonRoundedImage;
+@dynamic navigationBarGradientImage;
+
 @end

@@ -9,17 +9,9 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "ExampleStyle.h"
 #import "PSFakeNotificationCenter.h"
-#import "PSStyleColorDispatcher.h"
+#import "PSStyleColorResolver.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
-
-@interface PSStyleManager (Testing)
-
-@property (nonatomic, strong) NSArray *dispatchers;
-
-+ (void)reset;
-
-@end
 
 @interface PSStyleTests : SenTestCase
 
@@ -60,17 +52,17 @@
 
 - (void)testItReturnsNOIfAddingInvalidDispatcher;
 {
-  STAssertFalse([self.style registerStyleDispatcherClass:[NSObject class]], @"");
+  STAssertFalse([self.style registerStyleResolverClass:[NSObject class]], @"");
 }
 
 - (void)testItCanAddDispatchers;
 {
-  STAssertTrue([self.style registerStyleDispatcherClass:[PSStyleColorDispatcher class]], @"");
+  STAssertTrue([self.style registerStyleResolverClass:[PSStyleColorResolver class]], @"");
 }
 
 - (void)testItCanRemoveDispatchers;
 {
-  STAssertNoThrow([self.style unregisterStyleDispatcherClass:[PSStyleColorDispatcher class]], @"");
+  STAssertNoThrow([self.style unregisterStyleResolverClass:[PSStyleColorResolver class]], @"");
 }
 
 @end

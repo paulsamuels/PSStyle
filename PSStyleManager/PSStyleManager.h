@@ -10,7 +10,7 @@
 
 @class PSStyleManager;
 
-@protocol PSStyleDispatcher <NSObject>
+@protocol PSStyleResolver <NSObject>
 
 + (BOOL)canHandleStyleSelector:(SEL)sel;
 
@@ -28,7 +28,7 @@
 @property (nonatomic, strong)         NSNotificationCenter *notificationCenter;
 @property (nonatomic, copy, readonly) NSString             *assetDirectory;
 
-- (BOOL)registerStyleClass:(Class)styleClass;
-- (void)unregisterStyleClass:(Class)styleClass;
+- (BOOL)registerStyleResolverClass:(Class)styleResolverClass;
+- (void)unregisterStyleResolverClass:(Class)styleResolverClass;
 
 @end

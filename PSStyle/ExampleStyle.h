@@ -16,4 +16,8 @@
 @property (nonatomic, strong, readonly) UIImage *darkRoundedImage;
 @property (nonatomic, strong, readonly) UIImage *undefinedRoundedImage;
 
+@property (nonatomic, strong, readonly) UIColor *backgroundColor;
+@property (nonatomic, strong, readonly) UIImage *buttonRoundedImage;
+@property (nonatomic, strong, readonly) UIImage *navigationBarGradientImage;
+
 @end

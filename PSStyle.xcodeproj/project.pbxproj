@@ -18,10 +18,12 @@
 		DA80614015FFB5F8003DBBDF /* style.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACAA57615FFA76A00403AC0 /* style.plist */; };
 		DA80614215FFBAF9003DBBDF /* customStyle.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA80614115FFBAF9003DBBDF /* customStyle.plist */; };
 		DA80614315FFE560003DBBDF /* ExampleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAA57415FFA6D600403AC0 /* ExampleStyle.m */; };
-		DA80E73216027A0200F0DC17 /* PSStyleDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80E72F16027A0200F0DC17 /* PSStyleDispatcher.m */; };
-		DA80E73316027A0200F0DC17 /* PSStyleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80E73116027A0200F0DC17 /* PSStyleManager.m */; };
-		DA80E73916027A0E00F0DC17 /* PSStyleColorDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80E73616027A0E00F0DC17 /* PSStyleColorDispatcher.m */; };
-		DA80E73A16027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80E73816027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.m */; };
+		DA80E73916027A0E00F0DC17 /* PSStyleColorResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80E73616027A0E00F0DC17 /* PSStyleColorResolver.m */; };
+		DA80E73A16027A0E00F0DC17 /* PSStyleRoundedImageResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80E73816027A0E00F0DC17 /* PSStyleRoundedImageResolver.m */; };
+		DA8CFAA316031B7F00B685C2 /* PSStyleResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8CFAA016031B7F00B685C2 /* PSStyleResolver.m */; };
+		DA8CFAA416031B7F00B685C2 /* PSStyleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8CFAA216031B7F00B685C2 /* PSStyleManager.m */; };
+		DA8CFAA716031BA200B685C2 /* PSStyleMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8CFAA616031BA200B685C2 /* PSStyleMeViewController.m */; };
+		DA8CFAA916031BBA00B685C2 /* PSStyleMeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8CFAA816031BBA00B685C2 /* PSStyleMeView.xib */; };
 		DACAA55815FFA60B00403AC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55715FFA60B00403AC0 /* UIKit.framework */; };
 		DACAA55A15FFA60B00403AC0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55915FFA60B00403AC0 /* Foundation.framework */; };
 		DACAA55C15FFA60B00403AC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACAA55B15FFA60B00403AC0 /* CoreGraphics.framework */; };
@@ -53,14 +55,17 @@
 		DA80613315FFB1C2003DBBDF /* PSStyleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSStyleTests.m; sourceTree = "<group>"; };
 		DA80613515FFB1C2003DBBDF /* PSStyleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSStyleTests-Prefix.pch"; sourceTree = "<group>"; };
 		DA80614115FFBAF9003DBBDF /* customStyle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = customStyle.plist; sourceTree = "<group>"; };
-		DA80E72E16027A0200F0DC17 /* PSStyleDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleDispatcher.h; sourceTree = "<group>"; };
-		DA80E72F16027A0200F0DC17 /* PSStyleDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleDispatcher.m; sourceTree = "<group>"; };
-		DA80E73016027A0200F0DC17 /* PSStyleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleManager.h; sourceTree = "<group>"; };
-		DA80E73116027A0200F0DC17 /* PSStyleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleManager.m; sourceTree = "<group>"; };
-		DA80E73516027A0E00F0DC17 /* PSStyleColorDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleColorDispatcher.h; sourceTree = "<group>"; };
-		DA80E73616027A0E00F0DC17 /* PSStyleColorDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleColorDispatcher.m; sourceTree = "<group>"; };
-		DA80E73716027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleRoundedImageDispatcher.h; sourceTree = "<group>"; };
-		DA80E73816027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleRoundedImageDispatcher.m; sourceTree = "<group>"; };
+		DA80E73516027A0E00F0DC17 /* PSStyleColorResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleColorResolver.h; sourceTree = "<group>"; };
+		DA80E73616027A0E00F0DC17 /* PSStyleColorResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleColorResolver.m; sourceTree = "<group>"; };
+		DA80E73716027A0E00F0DC17 /* PSStyleRoundedImageResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleRoundedImageResolver.h; sourceTree = "<group>"; };
+		DA80E73816027A0E00F0DC17 /* PSStyleRoundedImageResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleRoundedImageResolver.m; sourceTree = "<group>"; };
+		DA8CFA9F16031B7F00B685C2 /* PSStyleResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleResolver.h; sourceTree = "<group>"; };
+		DA8CFAA016031B7F00B685C2 /* PSStyleResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleResolver.m; sourceTree = "<group>"; };
+		DA8CFAA116031B7F00B685C2 /* PSStyleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleManager.h; sourceTree = "<group>"; };
+		DA8CFAA216031B7F00B685C2 /* PSStyleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleManager.m; sourceTree = "<group>"; };
+		DA8CFAA516031BA200B685C2 /* PSStyleMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStyleMeViewController.h; sourceTree = "<group>"; };
+		DA8CFAA616031BA200B685C2 /* PSStyleMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStyleMeViewController.m; sourceTree = "<group>"; };
+		DA8CFAA816031BBA00B685C2 /* PSStyleMeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSStyleMeView.xib; sourceTree = "<group>"; };
 		DACAA55315FFA60B00403AC0 /* PSStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACAA55715FFA60B00403AC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DACAA55915FFA60B00403AC0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,27 +129,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DA80E72D16027A0200F0DC17 /* PSStyleManager */ = {
-			isa = PBXGroup;
-			children = (
-				DA80E72E16027A0200F0DC17 /* PSStyleDispatcher.h */,
-				DA80E72F16027A0200F0DC17 /* PSStyleDispatcher.m */,
-				DA80E73016027A0200F0DC17 /* PSStyleManager.h */,
-				DA80E73116027A0200F0DC17 /* PSStyleManager.m */,
-			);
-			path = PSStyleManager;
-			sourceTree = "<group>";
-		};
 		DA80E73416027A0E00F0DC17 /* Dispatchers */ = {
 			isa = PBXGroup;
 			children = (
-				DA80E73516027A0E00F0DC17 /* PSStyleColorDispatcher.h */,
-				DA80E73616027A0E00F0DC17 /* PSStyleColorDispatcher.m */,
-				DA80E73716027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.h */,
-				DA80E73816027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.m */,
+				DA80E73516027A0E00F0DC17 /* PSStyleColorResolver.h */,
+				DA80E73616027A0E00F0DC17 /* PSStyleColorResolver.m */,
+				DA80E73716027A0E00F0DC17 /* PSStyleRoundedImageResolver.h */,
+				DA80E73816027A0E00F0DC17 /* PSStyleRoundedImageResolver.m */,
 			);
 			path = Dispatchers;
 			sourceTree = "<group>";
+		};
+		DA8CFA9E16031B7F00B685C2 /* PSStyleManager */ = {
+			isa = PBXGroup;
+			children = (
+				DA8CFA9F16031B7F00B685C2 /* PSStyleResolver.h */,
+				DA8CFAA016031B7F00B685C2 /* PSStyleResolver.m */,
+				DA8CFAA116031B7F00B685C2 /* PSStyleManager.h */,
+				DA8CFAA216031B7F00B685C2 /* PSStyleManager.m */,
+			);
+			path = PSStyleManager;
+			sourceTree = SOURCE_ROOT;
 		};
 		DACAA54815FFA60B00403AC0 = {
 			isa = PBXGroup;
@@ -179,7 +184,7 @@
 		DACAA55D15FFA60B00403AC0 /* PSStyle */ = {
 			isa = PBXGroup;
 			children = (
-				DA80E72D16027A0200F0DC17 /* PSStyleManager */,
+				DA8CFA9E16031B7F00B685C2 /* PSStyleManager */,
 				DA80E73416027A0E00F0DC17 /* Dispatchers */,
 				DACAA56615FFA60B00403AC0 /* PSAppDelegate.h */,
 				DACAA56715FFA60B00403AC0 /* PSAppDelegate.m */,
@@ -187,6 +192,9 @@
 				DACAA57315FFA6D600403AC0 /* ExampleStyle.h */,
 				DACAA57415FFA6D600403AC0 /* ExampleStyle.m */,
 				DACAA57615FFA76A00403AC0 /* style.plist */,
+				DA8CFAA516031BA200B685C2 /* PSStyleMeViewController.h */,
+				DA8CFAA616031BA200B685C2 /* PSStyleMeViewController.m */,
+				DA8CFAA816031BBA00B685C2 /* PSStyleMeView.xib */,
 			);
 			path = PSStyle;
 			sourceTree = "<group>";
@@ -286,6 +294,7 @@
 			files = (
 				DACAA56215FFA60B00403AC0 /* InfoPlist.strings in Resources */,
 				DACAA57715FFA76A00403AC0 /* style.plist in Resources */,
+				DA8CFAA916031BBA00B685C2 /* PSStyleMeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,10 +335,11 @@
 				DACAA56415FFA60B00403AC0 /* main.m in Sources */,
 				DACAA56815FFA60B00403AC0 /* PSAppDelegate.m in Sources */,
 				DACAA57515FFA6D600403AC0 /* ExampleStyle.m in Sources */,
-				DA80E73216027A0200F0DC17 /* PSStyleDispatcher.m in Sources */,
-				DA80E73316027A0200F0DC17 /* PSStyleManager.m in Sources */,
-				DA80E73916027A0E00F0DC17 /* PSStyleColorDispatcher.m in Sources */,
-				DA80E73A16027A0E00F0DC17 /* PSStyleRoundedImageDispatcher.m in Sources */,
+				DA80E73916027A0E00F0DC17 /* PSStyleColorResolver.m in Sources */,
+				DA80E73A16027A0E00F0DC17 /* PSStyleRoundedImageResolver.m in Sources */,
+				DA8CFAA316031B7F00B685C2 /* PSStyleResolver.m in Sources */,
+				DA8CFAA416031B7F00B685C2 /* PSStyleManager.m in Sources */,
+				DA8CFAA716031BA200B685C2 /* PSStyleMeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
